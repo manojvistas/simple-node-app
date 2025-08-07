@@ -4,10 +4,11 @@
   "main": "index.js",
   "scripts": {
   "test": "echo \"Skipping tests...\" && exit 0"
-}
+
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": ""
+}
 
