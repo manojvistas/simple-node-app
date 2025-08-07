@@ -1,0 +1,137 @@
+✅ Task: Automate Code Deployment Using CI/CD Pipeline (GitHub Actions)
+📌 Project Title
+Simple Node.js App with CI/CD using GitHub Actions and Docker
+
+📁 Project Description
+This project demonstrates the implementation of a CI/CD pipeline using GitHub Actions to automate the build and deployment process of a simple Node.js web application. The application is packaged using Docker and pushed to Docker Hub as part of the CI/CD workflow.
+
+🎯 Objectives
+Create a basic Node.js web app.
+
+Containerize the application using Docker.
+
+Set up a GitHub repository and configure GitHub Actions workflow.
+
+Automate Docker image build and push to Docker Hub on every push to the main branch.
+
+🛠️ Tools & Technologies
+Node.js
+
+Docker
+
+GitHub
+
+GitHub Actions
+
+Docker Hub
+
+📂 Project Structure
+pgsql
+Copy
+Edit
+simple-node-app/
+├── Dockerfile
+├── .github/
+│   └── workflows/
+│       └── docker.yml
+├── index.js
+├── package.json
+└── README.md
+🚀 How to Run Locally
+Clone the repository:
+
+bash
+Copy
+Edit
+git clone https://github.com/manojvistas/simple-node-app.git
+cd simple-node-app
+Install dependencies:
+
+bash
+Copy
+Edit
+npm install
+Run the application:
+
+bash
+Copy
+Edit
+node index.js
+Open your browser and visit:
+👉 http://localhost:3000
+
+🐳 Docker Setup
+Build Docker Image
+bash
+Copy
+Edit
+docker build -t simple-node-app .
+Run Docker Container
+bash
+Copy
+Edit
+docker run -p 3000:3000 simple-node-app
+⚙️ CI/CD Workflow (GitHub Actions)
+The CI/CD pipeline is defined in .github/workflows/docker.yml and does the following:
+
+Trigger: On every push to master or main.
+
+Steps:
+
+Check out the code.
+
+Log in to Docker Hub using secrets.
+
+Build Docker image.
+
+Push Docker image to Docker Hub.
+
+🔐 GitHub Secrets Needed
+Set the following secrets in your GitHub repo:
+
+DOCKER_USERNAME – your Docker Hub username
+
+DOCKER_PASSWORD – your Docker Hub password or personal access token
+
+📝 Sample GitHub Actions Workflow (.github/workflows/docker.yml)
+yaml
+Copy
+Edit
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build Docker Image
+        run: docker build -t manojvistas/simple-node-app .
+
+      - name: Push Docker Image
+        run: docker push manojvistas/simple-node-app
+✅ Status
+ Node.js App Working
+
+ Dockerized
+
+ GitHub Actions CI/CD Configured
+
+ Pushed to Docker Hub on every push
+
+📦 Docker Hub Link
+🔗 https://hub.docker.com/repository/docker/manojvistas/simple-node-app
+
+✍️ Author
+Manoj
+📧 manojavm2000@gmail.com
+🔗 GitHub Profile
